@@ -1,0 +1,54 @@
+# Default configuration for the AMD LLM Inference Optimizer.
+# Override fields by passing --config path/to/override.yaml on the CLI.
+
+model:
+  name: meta-llama/Llama-2-7b-hf
+  revision: main
+  trust_remote_code: false
+  dtype: float16
+
+quantization:
+  enabled: true
+  scheme: gptq        # one of: gptq, awq, none
+  bits: 4
+  group_size: 128
+  desc_act: false
+  zero_point: true
+  calibration_samples: 128
+  calibration_seqlen: 2048
+
+batching:
+  strategy: continuous   # one of: static, dynamic, continuous
+  max_batch_size: 64
+  max_waiting_tokens: 256
+  preempt_mode: recompute
+  scheduling_quantum_ms: 5
+
+kv_cache:
+  num_pages: 2048
+  page_size: 16
+  num_heads: 32
+  head_dim: 128
+  swap_space_gb: 4
+  prefix_caching: true
+
+rocm:
+  device: 0
+  hip_visible_devices: "0"
+  use_flash_attn_v2: true
+  use_hipblaslt: true
+  num_streams: 4
+  graph_capture: true
+
+generation:
+  max_tokens: 512
+  temperature: 0.7
+  top_p: 0.9
+  top_k: 50
+  repetition_penalty: 1.05
+  stop_strings: []
+
+logging:
+  level: INFO
+  format: "%(asctime)s %(levelname)s %(name)s :: %(message)s"
+  log_file: null
