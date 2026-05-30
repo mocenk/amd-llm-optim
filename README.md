@@ -1,8 +1,10 @@
 # LLM Inference Optimizer for AMD ROCm
 
+[![CI](https://github.com/mocenk/amd-llm-optim/actions/workflows/ci.yml/badge.svg)](https://github.com/mocenk/amd-llm-optim/actions/workflows/ci.yml)
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![ROCm 6.0+](https://img.shields.io/badge/ROCm-6.0+-red.svg)](https://rocm.docs.amd.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 A high-performance toolkit for optimizing LLM inference on AMD GPUs using ROCm. Implements quantization (GPTQ/AWQ), continuous batching, KV-cache paging, and ROCm-specific kernel optimizations to maximize throughput and minimize latency.
 
